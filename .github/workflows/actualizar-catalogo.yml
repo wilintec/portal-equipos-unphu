@@ -1,0 +1,40 @@
+name: Actualizar catálogo de equipos
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'datos/**/*.xlsx'
+      - 'scripts/generar_catalogo.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  regenerar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Generar catálogo desde Excel
+        run: python scripts/generar_catalogo.py
+
+      - name: Guardar catálogo regenerado
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A data/equipos.json assets/equipos
+          if git diff --cached --quiet; then
+            echo "Sin cambios para guardar."
+          else
+            git commit -m "Actualizar catálogo automáticamente desde Excel"
+            git push
+          fi
