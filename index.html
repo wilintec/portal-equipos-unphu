@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Catálogo institucional de equipos de investigación vinculados a proyectos UNPHU.">
+  <title>Catálogo de Equipos | UNPHU Investigación</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="Inicio del catálogo">
+      <span class="brand-mark" aria-hidden="true">E</span>
+      <span>
+        <strong>Catálogo de Equipos</strong>
+        <small>Infraestructura científica y tecnológica</small>
+      </span>
+    </a>
+    <nav aria-label="Navegación principal">
+      <a href="#equipos">Equipos</a>
+      <a href="#actualizacion">Cómo se actualiza</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-inner">
+        <p class="eyebrow">Portal institucional · Investigación UNPHU</p>
+        <h1>Equipos vinculados a proyectos de investigación</h1>
+        <p class="hero-copy">Explora la infraestructura científica y tecnológica adquirida por proyectos. Consulta fotografías, número de serie, descripción, ubicación, estado y disponibilidad para brindar servicios.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#equipos">Explorar equipos ↓</a>
+          <a class="btn btn-secondary" href="#actualizacion">Conocer el proceso</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-wrap" aria-labelledby="resumen-title">
+      <div class="section-heading compact">
+        <p class="eyebrow dark">Resumen del catálogo</p>
+        <h2 id="resumen-title" class="sr-only">Resumen del catálogo</h2>
+      </div>
+      <div class="stats-grid">
+        <article class="stat-card"><strong id="stat-equipos">—</strong><span>Equipos publicados</span></article>
+        <article class="stat-card"><strong id="stat-proyectos">—</strong><span>Proyectos representados</span></article>
+        <article class="stat-card"><strong id="stat-ubicaciones">—</strong><span>Ubicaciones registradas</span></article>
+        <article class="stat-card"><strong id="stat-servicio">—</strong><span>Aptos para brindar servicio</span></article>
+      </div>
+      <p class="catalog-note">Catálogo informativo. La disponibilidad operativa y las condiciones de uso de cada equipo deben confirmarse con la unidad responsable.</p>
+    </section>
+
+    <section class="catalog-section" id="equipos">
+      <div class="section-heading">
+        <p class="eyebrow dark">Equipos disponibles</p>
+        <h2>Infraestructura registrada</h2>
+        <p>Información publicada automáticamente desde los archivos Excel de inventario.</p>
+      </div>
+
+      <div class="filters" aria-label="Filtros del catálogo">
+        <label class="field field-search">
+          <span>Buscar</span>
+          <input id="search" type="search" placeholder="Equipo, proyecto, serie, ubicación, palabra clave…" autocomplete="off">
+        </label>
+        <label class="field">
+          <span>Proyecto</span>
+          <select id="filter-project"><option value="">Todos</option></select>
+        </label>
+        <label class="field">
+          <span>Ubicación</span>
+          <select id="filter-location"><option value="">Todas</option></select>
+        </label>
+        <label class="field">
+          <span>Servicio externo</span>
+          <select id="filter-service">
+            <option value="">Todos</option>
+            <option value="si">Sí</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="results-bar">
+        <span id="result-count">Cargando catálogo…</span>
+        <span id="updated-at">Actualizado desde Excel: —</span>
+      </div>
+
+      <div id="cards" class="cards-grid" aria-live="polite"></div>
+      <div id="empty-state" class="empty-state" hidden>
+        <strong>No encontramos equipos con esos criterios.</strong>
+        <span>Prueba a cambiar el texto de búsqueda o alguno de los filtros.</span>
+      </div>
+    </section>
+
+    <section class="automation-section" id="actualizacion">
+      <div class="automation-copy">
+        <p class="eyebrow">Actualización automática</p>
+        <h2>Excel como fuente maestra</h2>
+        <p>El portal no requiere editar manualmente las tarjetas. Cada vez que se agrega o modifica un archivo <code>.xlsx</code> dentro de la carpeta <code>datos</code>, el proceso automático vuelve a leer los inventarios, extrae las fotografías incrustadas, reconstruye el catálogo y publica los cambios.</p>
+      </div>
+      <div class="flow" aria-label="Flujo de actualización">
+        <div><span>1</span><strong>Excel</strong><small>Inventarios por proyecto</small></div>
+        <i aria-hidden="true">→</i>
+        <div><span>2</span><strong>Validación</strong><small>Campos + fotografías</small></div>
+        <i aria-hidden="true">→</i>
+        <div><span>3</span><strong>Catálogo</strong><small>JSON + fichas web</small></div>
+        <i aria-hidden="true">→</i>
+        <div><span>4</span><strong>GitHub Pages</strong><small>Publicación automática</small></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <strong>Equipos científicos y tecnológicos</strong>
+      <p>Portal institucional para divulgar infraestructura vinculada a proyectos de investigación.</p>
+    </div>
+    <div>
+      <strong>Fuente de datos</strong>
+      <p>Archivos Excel de inventario. La página se regenera automáticamente desde el repositorio.</p>
+    </div>
+  </footer>
+
+  <dialog id="equipment-dialog" class="equipment-dialog">
+    <button class="dialog-close" id="dialog-close" aria-label="Cerrar">×</button>
+    <div id="dialog-content"></div>
+  </dialog>
+
+  <script src="assets/app.js" defer></script>
+</body>
+</html>
