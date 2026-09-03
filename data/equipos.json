@@ -1,5 +1,5 @@
 {
-  "generado_en": "2026-09-03T15:34:37.482324+00:00",
+  "generado_en": "2026-09-03T18:31:45.909930+00:00",
   "fuentes": [
     "Catalogo de Inventario - (MANGISEL).xlsx",
     "Catalogo de Inventario - AGUACATE2.xlsx",
@@ -57,7 +57,7 @@
       "fuente": "Catalogo de Inventario -Analisis Molecular.xlsx",
       "hoja": "Sheet2",
       "fila_excel": 13,
-      "foto": ""
+      "foto": "assets/equipos/catalogo-de-inventario-analisis-mol-sheet2-13.png"
     },
     {
       "institucion": "UNPHU",
@@ -105,7 +105,7 @@
       "fuente": "Catalogo de Inventario -Analisis Molecular.xlsx",
       "hoja": "Sheet2",
       "fila_excel": 24,
-      "foto": ""
+      "foto": "assets/equipos/catalogo-de-inventario-analisis-mol-sheet2-24.png"
     },
     {
       "institucion": "UNPHU",
