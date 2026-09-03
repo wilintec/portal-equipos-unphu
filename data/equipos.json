@@ -1,5 +1,5 @@
 {
-  "generado_en": "2026-09-03T14:58:51.076398+00:00",
+  "generado_en": "2026-09-03T15:05:47.048088+00:00",
   "fuentes": [
     "Catalogo de Inventario - (MANGISEL).xlsx",
     "Catalogo de Inventario - AGUACATE2.xlsx",
@@ -1292,7 +1292,7 @@
       "fuente": "Catalogo de Inventario -REDHBIM.xlsx",
       "hoja": "Sheet2",
       "fila_excel": 21,
-      "foto": ""
+      "foto": "assets/equipos/catalogo-de-inventario-redhbim-sheet2-21.png"
     },
     {
       "institucion": "UNPHU",
