@@ -51,6 +51,7 @@ function card(item) {
           <div class="meta-row"><b>Serie</b><span>${safe(display(item.serie,'No registrada'))}</span></div>
           <div class="meta-row"><b>Ubicación</b><span>${safe(display(item.ubicacion))}</span></div>
           <div class="meta-row"><b>Proyecto</b><span>${safe(display(item.proyecto))}</span></div>
+          ${Object.prototype.hasOwnProperty.call(item, 'estaba_antes_visita_2026') ? `<div class="meta-row"><b>Estaba Antes de la Visita 2026</b><span>${safe(display(item.estaba_antes_visita_2026))}</span></div>` : ''}
         </div>
         <div class="card-footer">
           <span class="status-pill">${safe(display(item.funcionamiento,'Estado no indicado'))}</span>
@@ -66,7 +67,7 @@ function render() {
   const location = els.location.value;
   const service = els.service.value;
   state.filtered = state.all.filter(item => {
-    const haystack = norm([item.equipo,item.descripcion,item.serie,item.proyecto,item.codigo_proyecto,item.ubicacion,item.funcionamiento,item.institucion].join(' '));
+    const haystack = norm([item.equipo,item.descripcion,item.serie,item.proyecto,item.codigo_proyecto,item.ubicacion,item.funcionamiento,item.institucion,item.estaba_antes_visita_2026].join(' '));
     if (q && !haystack.includes(q)) return false;
     if (project && item.proyecto !== project) return false;
     if (location && item.ubicacion !== location) return false;
@@ -97,6 +98,7 @@ function openDialog(id) {
           <div class="detail-item"><span>Ubicación</span><strong>${safe(display(item.ubicacion))}</strong></div>
           <div class="detail-item"><span>Funcionamiento</span><strong>${safe(display(item.funcionamiento))}</strong></div>
           <div class="detail-item"><span>Servicio a otra institución</span><strong>${safe(display(item.servicio_externo))}</strong></div>
+          ${Object.prototype.hasOwnProperty.call(item, 'estaba_antes_visita_2026') ? `<div class="detail-item"><span>Estaba Antes de la Visita 2026</span><strong>${safe(display(item.estaba_antes_visita_2026))}</strong></div>` : ''}
           <div class="detail-item"><span>Fuente</span><strong>${safe(display(item.fuente))}</strong></div>
         </div>
       </div>
