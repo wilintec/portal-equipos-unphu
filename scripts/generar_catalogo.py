@@ -36,6 +36,7 @@ ALIASES = {
     "ubicacion del equipo lugar especifico": "ubicacion",
     "funcionamiento": "funcionamiento",
     "equipo apto para brindar servicio a otra institucion": "servicio_externo",
+    "estaba antes de la visita 2026": "estaba_antes_visita_2026",
     "foto": "foto_celda",
 }
 
@@ -211,7 +212,7 @@ def process_xlsx(path: Path) -> tuple[list[dict], list[str]]:
             for rnum in range(header_row + 1, max_row + 1):
                 row = rows.get(rnum, {})
                 item = {field: clean(row.get(col, "")) for col, field in col_map.items()}
-                meaningful = [item.get(k, "") for k in ("institucion", "equipo", "descripcion", "serie", "proyecto", "ubicacion", "funcionamiento", "servicio_externo")]
+                meaningful = [item.get(k, "") for k in ("institucion", "equipo", "descripcion", "serie", "proyecto", "ubicacion", "funcionamiento", "servicio_externo", "estaba_antes_visita_2026")]
                 if not any(meaningful):
                     blank_streak += 1
                     if data_started and blank_streak >= 5:
